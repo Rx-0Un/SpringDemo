@@ -18,4 +18,6 @@ public interface TbUserMapper {
      * @mbg.generated Tue Feb 25 17:41:08 GMT+08:00 2020
      */
     int insertSelective(TbUser record);
+
+    TbUser[] selectAll();
 }
