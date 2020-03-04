@@ -1,6 +1,9 @@
 package com.example.demo.mapper;
 
 import com.example.demo.entity.TbUser;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TbUserMapper {
     /**
@@ -20,4 +23,6 @@ public interface TbUserMapper {
     int insertSelective(TbUser record);
 
     TbUser[] selectAll();
+
+    int selectForLogin(@Param("user_name") String name, @Param("user_pwd") String pwd);
 }

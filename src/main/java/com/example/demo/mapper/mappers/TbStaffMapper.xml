@@ -68,4 +68,14 @@
       </if>
     </trim>
   </insert>
+  <select id="selectForLogin" parameterType="java.lang.String" resultType="Integer">
+        select count(*) from  tb_staff
+        where staff_name=#{staff_name,jdbcType=VARCHAR}
+        and staff_login_pwd =#{staff_login_pwd,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByUserName" parameterType="java.lang.String" resultType="Integer">
+        select count(*)
+        from  tb_staff
+        where staff_name=#{staff_name,jdbcType=VARCHAR}
+  </select>
 </mapper>

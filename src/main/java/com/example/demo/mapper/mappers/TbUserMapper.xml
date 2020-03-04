@@ -91,10 +91,15 @@
             </if>
         </trim>
     </insert>
-<!--        <select id="selectAll" resultType="com.example.demo.entity.TbUser">-->
-<!--            select * from tb_user-->
-<!--        </select>-->
+    <!--        <select id="selectAll" resultType="com.example.demo.entity.TbUser">-->
+    <!--            select * from tb_user-->
+    <!--        </select>-->
     <select id="selectAll" resultMap="BaseResultMap" parameterType="com.example.demo.entity.TbUser">
             select * from tb_user
+    </select>
+    <select id="selectForLogin" parameterType="java.lang.String" resultType="Integer">
+        select count(*) from  tb_user
+        where user_name=#{user_name,jdbcType=VARCHAR}
+        and user_pwd =#{user_pwd,jdbcType=VARCHAR}
     </select>
 </mapper>

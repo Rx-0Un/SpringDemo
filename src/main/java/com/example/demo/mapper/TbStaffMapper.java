@@ -1,6 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.entity.TbStaff;
+import org.apache.ibatis.annotations.Param;
 
 public interface TbStaffMapper {
     /**
@@ -18,4 +19,21 @@ public interface TbStaffMapper {
      * @mbg.generated Tue Feb 25 17:41:08 GMT+08:00 2020
      */
     int insertSelective(TbStaff record);
+
+    /**
+     * 根据用户名和密码是否匹配
+     * @param name
+     * @param pwd
+     * @return
+     */
+    int selectForLogin(@Param("staff_name") String name, @Param("staff_login_pwd") String pwd);
+
+    /**
+     * 根据用户名查询是否存在
+     * @param name
+     * @return
+     */
+    int selectByUserName(@Param("staff_name")String name);
+
+
 }

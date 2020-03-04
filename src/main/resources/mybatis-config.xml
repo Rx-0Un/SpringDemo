@@ -28,6 +28,18 @@
     </environments>
     <mappers>
         <mapper resource="com/example/demo/mapper/mappers/TbUserMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbCarMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbCouponMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbMonthlyCardMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbOrderMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbParkingRecordMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbParkingSpaceMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbRuleMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbStaffMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbUserAmountMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbCouponMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/TbUserMonthlyCardMapper.xml"/>
+        <mapper resource="com/example/demo/mapper/mappers/testMapper.xml"/>
         <!--常规做法-->
         <!--<mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml" />-->
         <!--<mapper resource="tk/mybatis/simple/mapper/PrivilegeMapper.xml" />-->
