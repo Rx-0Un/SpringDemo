@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@ComponentScan(basePackages = {"com.example.demo.controller"})
+@ComponentScan(basePackages = {"com.example.demo.controller","com.example.demo.service"})
 @MapperScan(value = "com.example.demo.mapper")
 public class DemoApplication {
 

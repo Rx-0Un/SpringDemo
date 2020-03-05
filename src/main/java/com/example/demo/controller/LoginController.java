@@ -19,13 +19,17 @@ public class LoginController {
 
     @RequestMapping(value = "/login",method = POST)
     public String login(String name, String pwd) {
+        System.out.println(name+"  " +
+                pwd);
         int Count = staffService.SelectForLogin(name, pwd);
-//        System.out.println(Count);
+        System.out.println(Count);
         if (Count == 1) {
             return "success";
         }
-//        System.out.println("out");
         return "error";
     }
-
+    @RequestMapping(value = "/jsp",method = POST)
+    public String testJsp() {
+        return "authentication-login";
+    }
 }
