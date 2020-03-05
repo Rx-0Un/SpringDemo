@@ -1,32 +1,31 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.TbUser;
-import com.example.demo.mapper.TbStaffMapper;
-import com.example.demo.mapper.TbUserMapper;
-import com.example.demo.service.StaffService;
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 
-import javax.servlet.http.HttpServletRequest;
+import com.example.demo.service.StaffService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 
 /**
  * 职员操作相关
  */
-@Controller
+@RestController
 public class LoginController {
-
+    @Autowired
     private StaffService staffService;
 
-
-    public String login(HttpServletRequest request, Model model) {
-        String name = request.getParameter("");
-        String pwd = request.getParameter("");
-        if (staffService.SelectByStaffName(name)==0){
+    @RequestMapping(value = "/login",method = POST)
+    public String login(String name, String pwd) {
+        int Count = staffService.SelectForLogin(name, pwd);
+//        System.out.println(Count);
+        if (Count == 1) {
             return "success";
         }
-        System.out.println(staffService.SelectByStaffName(name));
-        return "";
+//        System.out.println("out");
+        return "error";
     }
+
 }
