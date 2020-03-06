@@ -3,8 +3,10 @@ package com.example.demo.controller;
 
 import com.example.demo.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -12,24 +14,29 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 /**
  * 职员操作相关
  */
-@RestController
+@Controller
 public class LoginController {
-    @Autowired
+
     private StaffService staffService;
 
-    @RequestMapping(value = "/login",method = POST)
-    public String login(String name, String pwd) {
-        System.out.println(name+"  " +
+    @RequestMapping(value = "/login", method = POST)
+    public String login(@RequestParam("name") String name, @RequestParam("pwd") String pwd, Model model) {
+
+        System.out.println(name + "  " +
                 pwd);
-        int Count = staffService.SelectForLogin(name, pwd);
-        System.out.println(Count);
+        int Count = 0;
+        String loginInfo ="登录成功";
+        Count = staffService.SelectForLogin(name, pwd);
         if (Count == 1) {
-            return "success";
+            model.addAttribute("loginInfo","!!!!!!");
+            System.out.println(model.getAttribute("loginInfo"));
+            return "redirect:index.html";
         }
         return "error";
     }
-    @RequestMapping(value = "/jsp",method = POST)
-    public String testJsp() {
-        return "authentication-login";
+
+    @Autowired
+    public void setStaffService(StaffService staffService) {
+        this.staffService = staffService;
     }
 }

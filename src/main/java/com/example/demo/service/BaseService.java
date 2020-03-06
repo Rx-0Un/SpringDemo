@@ -5,11 +5,13 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.BeforeClass;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.io.Reader;
 
 public class BaseService {
+    @Autowired
     private static SqlSessionFactory sqlSessionFactory;
 
     @BeforeClass

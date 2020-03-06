@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StaffService extends BaseService {
+public class StaffService{
 
     @Autowired
     private TbStaffMapper tbStaffMapper;
@@ -18,13 +18,7 @@ public class StaffService extends BaseService {
      * @return
      */
     public int SelectForLogin(String name,String pwd){
-        SqlSession sqlSession = getSqlSession();
-        try {
-            tbStaffMapper = sqlSession.getMapper(TbStaffMapper.class);
             return tbStaffMapper.selectForLogin(name,pwd);
-        } finally {
-            sqlSession.close();
-        }
     }
 
     /**
@@ -32,13 +26,13 @@ public class StaffService extends BaseService {
      * @param name
      * @return
      */
-    public int SelectByStaffName(String name){
-        SqlSession sqlSession = getSqlSession();
-        try {
-            tbStaffMapper = sqlSession.getMapper(TbStaffMapper.class);
-            return tbStaffMapper.selectByUserName(name);
-        } finally {
-            sqlSession.close();
-        }
-    }
+//    public int SelectByStaffName(String name){
+//        SqlSession sqlSession = getSqlSession();
+//        try {
+//            tbStaffMapper = sqlSession.getMapper(TbStaffMapper.class);
+//            return tbStaffMapper.selectByUserName(name);
+//        } finally {
+//            sqlSession.close();
+//        }
+//    }
 }
